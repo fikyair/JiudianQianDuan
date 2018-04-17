@@ -41,7 +41,12 @@ class Login extends Component {
                         username: username,
                         password: password	
                     };
-		        actions.goLogin(loginParams);
+		        //actions.goLogin(loginParams);
+				if(password == 'sosout'){
+                    window.location.href = '/home';
+				}else {
+					message.error("用户名或密码错误！")
+				}
 		    }
 	    });
 	}

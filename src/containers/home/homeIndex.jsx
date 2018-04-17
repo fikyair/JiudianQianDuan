@@ -30,7 +30,6 @@ class Main extends Component {
         this.setState({ current });
     }
 	render() { 
-        let linkHtml = '<link href="/antd/dist/app.css" rel="stylesheet" />';
         const steps = [{
           title: '下载',
           content: '<p>$&nbsp;&nbsp;&nbsp;git clone</p><p>$&nbsp;&nbsp;&nbsp;git clone https://github.com/sosout/react-antd.git</p><p>$&nbsp;&nbsp;&nbsp;cd react-antd</p>',
@@ -47,10 +46,9 @@ class Main extends Component {
             <Bcrumb title="快速入门" />
             <Row>
             	<Col span={24}>
-                    <Card title="项目前言" extra={<a href="https://github.com/sosout/react-antd">如果觉得不错的话，请star一下吧 😊</a>} bordered={false}>
-                      <p>本工程主要基于react + redux + immutable + less + ES6/7 + webpack + fetch + react-router + antd(1.x)实现的SPA后台管理系统模板。</p>
-                      <p>编码时间：8:00——9:30, 下班时间——24:00，其他时间要工作。代码未优化，处女座代码必须要优化。由于代码延后，先向大家说声抱歉。您有什么问题可以私信我<a href="https://segmentfault.com/u/sosout">segmentfault</a>。</p>
-                    </Card>  
+                    <Card title="项目前言" bordered={false}>
+                      <p>本工程主要基于react + redux + immutable + less + ES6/7 + webpack + fetch + react-router + antd(2.x)</p>
+                    </Card>
                     <Card title="项目上手" className="mg-top20">
                         <Steps current={current}>
                           {steps.map(item => <Step key={item.title} title={item.title} />)}
@@ -77,10 +75,10 @@ class Main extends Component {
                         </div>
                     </Card> 
                     <Card title="访问" className="mg-top20">
-                        <p>在浏览器地址栏输入http://127.0.0.1:8888</p>
+                        <p>在浏览器地址栏输入http://localhost:8082/</p>
                     </Card> 
                     <Card title="项目说明" className="mg-top20">
-                        <p>此项目是本人空余时间搭建的。希望大家提供宝贵的意见和建议，谢谢。</p>
+                        <p>此项目是本人毕业设计。希望大家提供宝贵的意见和建议，谢谢。</p>
                     </Card> 
                 </Col>
             </Row>

@@ -50,40 +50,28 @@ export class Lmenu extends Component {
 		              {!this.props.collapsed && <span className="nav-text">快速入门</span>}
 		            </Link>
 	            </Menu.Item>
-                <SubMenu key="chart" title={<span><Icon type="dot-chart" /><span className="nav-text">百度图表</span></span>}>
-                    <Menu.Item key="line"><Link to="/chart/line">折线图</Link></Menu.Item>
+                <SubMenu key="chart" title={<span><Icon type="dot-chart" /><span className="nav-text">登记</span></span>}>
+                    <Menu.Item key="queryBooking"><Link to="/booking/queryBooking">查询预订信息</Link></Menu.Item>
+					<Menu.Item key="booking"><Link to="/booking/checkIn">办理入住</Link></Menu.Item>
 	            </SubMenu>
-	            <SubMenu key="general" title={<span><Icon type="team" /><span className="nav-text">基础组件</span></span>}>
-                    <Menu.Item key="button"><Link to="/general/button">按钮</Link></Menu.Item>
-                    <Menu.Item key="icon"><Link to="/general/icon">图标</Link></Menu.Item>
-	            </SubMenu>
-                <Menu.Item key="user">
-			        <Link to="/user">
+                <Menu.Item key="checkout">
+			        <Link to="/checkout">
 		              <Icon type="user" />
-		              {!this.props.collapsed && <span className="nav-text">用户管理</span>}
+		              {!this.props.collapsed && <span className="nav-text">退订/续住</span>}
 		            </Link>
 	            </Menu.Item>
-	            <Menu.Item key="setting">
-	            <Link to="/setting">
-	              <Icon type="setting" />
-	              {!this.props.collapsed && <span className="nav-text">系统设置</span>}
-	            </Link>
-	            </Menu.Item>
-	            <Menu.Item key="adver">
-	            <Link to="/adver">
-	              <Icon type="notification" />
-	              {!this.props.collapsed && <span className="nav-text">广告管理</span>}
-	            </Link>
-	            </Menu.Item>
 	            <SubMenu
-	              key="sub1" title={<span><Icon type="team" /><span className="nav-text">UI组件</span></span>}
+	              key="sub1" title={<span><Icon type="team" /><span className="nav-text">客房/客人信息</span></span>}
 	            >
-	              <Menu.Item key="oneui"><Link to="/ui/oneui">组件一</Link></Menu.Item>
-	              <Menu.Item key="twoui"><Link to="/ui/twoui">组件二</Link></Menu.Item>
+	              <Menu.Item key="guestroom"><Link to="/guestrp/guestroom">客房信息</Link></Menu.Item>
+	              <Menu.Item key="guestpeople"><Link to="/guestrp/guestpeople">已入住客人信息</Link></Menu.Item>
 	            </SubMenu>
-	            <SubMenu key="sub2" title={<span><Icon type="setting" /><span className="nav-text">只展开当前父级菜单</span></span>}>
-			          <Menu.Item key="9">Option 9</Menu.Item>
-			          <Menu.Item key="10">Option 10</Menu.Item>
+	            <SubMenu key="sub2" title={<span><Icon type="notification" /><span className="nav-text">酒店信息管理</span></span>}>
+					<Menu.Item key="hotelinfo"><Link to="/hotel/baseinfo">酒店基本信息</Link></Menu.Item>
+					<Menu.Item key="roomprice"><Link to="/hotel/roomprice">客房价格</Link></Menu.Item>
+					<Menu.Item key="roominfo"><Link to="/hotel/roominfo"/>客房具体信息</Menu.Item>
+					<Menu.Item key="authorityinfo"><Link to = '/hotel/authorityinfo'>权限信息</Link></Menu.Item>
+					<Menu.Item key="userinfo"><Link to = '/hotel/userinfo'>用户信息</Link></Menu.Item>
 			    </SubMenu>
 	        </Menu>
 		)

@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react'; // 引入了React和PropTypes
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
+import { Bcrumb } from '../../component/bcrumb/bcrumb';
 
 /* 以类的方式创建一个组件 */
-class Main extends Component {
+class guestRoom extends Component {
     constructor(props) {
     	super(props);
     }
@@ -13,13 +14,16 @@ class Main extends Component {
 	render() {
 		return (	
 		<div>
-			组件二
+			<Bcrumb title="客房信息" icon="user" />
+			客房信息
 		</div>
 		);
 	}
 }
 
-Main.contextTypes = {
+guestRoom.contextTypes = {
 };
 
-export default Main;
+export default guestRoom;
+
+

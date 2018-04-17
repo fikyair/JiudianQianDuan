@@ -47,71 +47,87 @@ const home = (location, cb) => {
     }, 'home');
 }
 
-// 百度图表-折线图
-const chartLine = (location, cb) => {
+// 查询预订信息
+const queryBooking = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../containers/charts/lines').default)
-    }, 'chartLine');
+        cb(null, require('../containers/booking/queryBooking').default)
+    }, 'queryBooking');
 }
 
-// 基础组件-按钮
-const button = (location, cb) => {
+//办理入住
+const checkIn = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../containers/general/buttonIndex').default)
-    }, 'button');
+        cb(null, require('../containers/booking/checkIn').default)
+    }, 'checkIn');
 }
 
-// 基础组件-图标
-const icon = (location, cb) => {
+
+// 退订/续住
+const checkOut = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../containers/general/iconIndex').default)
-    }, 'icon');
+        cb(null, require('../containers/flatcheck/checkOut').default)
+    }, 'checkOut');
 }
 
-// 用户管理
-const user = (location, cb) => {
+
+// 客房信息
+const guestRoom = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../containers/user/userIndex').default)
-    }, 'user');
+        cb(null, require('../containers/guestRP/guestRoom').default)
+    }, 'guestRoom');
 }
 
-// 系统设置
-const setting = (location, cb) => {
+// 已入住客人信息
+const guestPeople = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../containers/setting/settingIndex').default)
-    }, 'setting');
+        cb(null, require('../containers/guestRP/guestPeople').default)
+    }, 'guestPeople');
 }
 
-// 广告管理
-const adver = (location, cb) => {
+
+
+// 酒店基本信息
+const hotelBaseInfo = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../containers/adver/adverIndex').default)
-    }, 'adver');
+        cb(null, require('../containers/hotel/hotelBaseInfo').default)
+    }, 'hotelBaseInfo');
 }
 
-// 组件一
-const oneui = (location, cb) => {
+// 客房价格
+const roomPrice = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../containers/ui/oneIndex').default)
-    }, 'oneui');
+        cb(null, require('../containers/hotel/roomPrice').default)
+    }, 'roomPrice');
 }
 
-// 组件二
-const twoui = (location, cb) => {
+//客房具体信息
+const roomInfo = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../containers/ui/twoIndex').default)
-    }, 'twoui');
+        cb(null, require('../containers/hotel/roomInfo').default)
+    }, 'roomInfo');
+}
+
+//权限信息
+const authorityInfo = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/hotel/authorityInfo').default)
+    }, 'authorityInfo');
+}
+
+//用户信息
+const useriInfo = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/hotel/useriInfo').default)
+    }, 'useriInfo');
 }
 
 // 登录验证
 const requireAuth = (nextState, replace) => {
-	let token = (new Date()).getTime() - Config.localItem('USER_AUTHORIZATION');
-	if(token > 7200000) { // 模拟Token保存2个小时
-		replace({
-			pathname: '/login',
-			state: { nextPathname: nextState.location.pathname }
-		});
-	}
+	// let token = (new Date()).getTime() - Config.localItem('USER_AUTHORIZATION');
+	// 	replace({
+	// 		pathname: '/login',
+	// 		state: { nextPathname: nextState.location.pathname }
+	// 	});
 }
 
 const RouteConfig = (
@@ -119,14 +135,16 @@ const RouteConfig = (
 		<Route path="/home" component={layout} onEnter={requireAuth}>
 			<IndexRoute getComponent={home} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
 			<Route path="/home" getComponent={home} onEnter={requireAuth} />
-            <Route path="/chart/line" getComponent={chartLine} onEnter={requireAuth} />
-			<Route path="/general/button" getComponent={button} onEnter={requireAuth} />
-			<Route path="/general/icon" getComponent={icon} onEnter={requireAuth} />
-            <Route path="/user" getComponent={user} onEnter={requireAuth} />
-			<Route path="/setting" getComponent={setting} onEnter={requireAuth} />
-			<Route path="/adver" getComponent={adver} onEnter={requireAuth} />
-			<Route path="/ui/oneui" getComponent={oneui} onEnter={requireAuth} />
-			<Route path="/ui/twoui" getComponent={twoui} onEnter={requireAuth} />
+            <Route path="/booking/queryBooking" getComponent={queryBooking} onEnter={requireAuth} />
+            <Route path="/booking/checkIn" getComponent={checkIn} onEnter={requireAuth} />
+            <Route path="/checkout" getComponent={checkOut} onEnter={requireAuth} />
+			<Route path="/guestrp/guestroom" getComponent={guestRoom} onEnter={requireAuth} />
+			<Route path="/guestrp/guestpeople" getComponent={guestPeople} onEnter={requireAuth} />
+			<Route path="/hotel/baseinfo" getComponent={hotelBaseInfo} onEnter={requireAuth} />
+			<Route path="/hotel/roomprice" getComponent={roomPrice} onEnter={requireAuth} />
+			<Route path="/hotel/roominfo" getComponent={roomInfo} onEnter={requireAuth} />
+			<Route path="/hotel/authorityinfo" getComponent={authorityInfo} onEnter={requireAuth} />
+			<Route path="/hotel/userinfo" getComponent={useriInfo} onEnter={requireAuth} />
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
@@ -134,5 +152,4 @@ const RouteConfig = (
 		<Redirect from="*" to="/home" />
 	</Router>
 );
-
 export default RouteConfig;

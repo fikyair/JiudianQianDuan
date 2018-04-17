@@ -14,7 +14,7 @@ class LoginService {
      * @return {登录信息}
      */
     goLogin(params, success, fail) {
-        return Xhr.post('/user/login', params, success, fail);
+        return Xhr.post('/flatcheck/login', params, success, fail);
     }
 }
 
