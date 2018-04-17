@@ -18,6 +18,7 @@ class CheckIn extends Component {
         return (
             <div className="lines-container">
                 <Bcrumb title="办理入住" icon="line-chart" />
+                办理入住
             </div>
         );
     }
