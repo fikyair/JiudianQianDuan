@@ -201,7 +201,7 @@ class checkOut extends Component {
                     </Row>
                 </Form>
                 <ManagerBody
-                    title={ <span style={{fontSize: 13, fontWeight: 400}}> 预订信息 </span> }
+                    title={ <span style={{fontSize: 13, fontWeight: 400}}>  退订/续住 </span> }
                     pageNum={ this.state.pageNum }
                     pageSize={this.state.pageSize }
                     total={ this.state.total }
