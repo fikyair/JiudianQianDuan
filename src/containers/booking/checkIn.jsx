@@ -238,6 +238,20 @@ class CheckIn extends Component {
                         <Col span={24} >
                             <FormItem
                                 {...formItemLayout}
+                                label="应收款"
+                                hasFeedback
+                            >
+                                {getFieldDecorator('mainPartCode', {
+                                    initialValue: '',
+                                })(
+                                    <Input style = {{ width : 140}}/>
+                                )}
+
+                            </FormItem>
+                        </Col>
+                        <Col span={24} >
+                            <FormItem
+                                {...formItemLayout}
                                 label="姓名"
                                 hasFeedback
                             >

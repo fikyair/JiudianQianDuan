@@ -107,11 +107,6 @@ class checkOut extends Component {
         key: 'type',
         width: '10%',
     },{
-        title: '入住日期',
-        dataIndex: 'enterDate',
-        key: 'enterDate',
-        width: '10%',
-    },{
         title: '离店日期',
         dataIndex: 'day',
         key: 'day',

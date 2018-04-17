@@ -69,7 +69,7 @@ export class Lmenu extends Component {
 	            <SubMenu key="sub2" title={<span><Icon type="notification" /><span className="nav-text">酒店信息管理</span></span>}>
 					<Menu.Item key="hotelinfo"><Link to="/hotel/baseinfo">酒店基本信息</Link></Menu.Item>
 					<Menu.Item key="roomprice"><Link to="/hotel/roomprice">客房价格</Link></Menu.Item>
-					<Menu.Item key="roominfo"><Link to="/hotel/roominfo"/>客房具体信息</Menu.Item>
+					{/*<Menu.Item key="roominfo"><Link to="/hotel/roominfo"/>客房具体信息</Menu.Item>*/}
 					<Menu.Item key="authorityinfo"><Link to = '/hotel/authorityinfo'>权限信息</Link></Menu.Item>
 					<Menu.Item key="userinfo"><Link to = '/hotel/userinfo'>用户信息</Link></Menu.Item>
 			    </SubMenu>
